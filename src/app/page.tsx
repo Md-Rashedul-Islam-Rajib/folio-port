@@ -1,12 +1,17 @@
 import Banner from "./_components/Banner";
 import SkillTabs from "./_components/Skills";
-import { getAllSkills } from "./_actions";
+import { getAllBlogs, getAllProjects, getAllSkills } from "./_actions";
 import { Skill } from "./_types";
 import Raper from "./_components/Raper";
+import FeatProjects from "./_components/FeatProjects";
+import BlogPreviewSection from "./_components/BlogPreview";
+import Education from "./_components/Education";
 
 export default async function HomePage() {
 
 const {data:skills} =await getAllSkills();
+const {data:projects} =await getAllProjects();
+const {data:blogs} =await getAllBlogs();
   
 
  
@@ -21,6 +26,9 @@ const {data:skills} =await getAllSkills();
           <div>
             <SkillTabs skills={skills} />
           </div>
+          <div> <FeatProjects projects={projects}/> </div>
+          <div> <BlogPreviewSection blogs={blogs}/> </div>
+          <div> <Education/> </div>
         </div>
       </div>
     </Raper>

@@ -33,7 +33,7 @@ export default function SkillTabs({
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-10 px-4">
+    <div className="w-full max-w-7xl mx-auto py-10 px-4">
       <h2 className="text-3xl font-bold mb-6 text-center">My Skills</h2>
 
       {/* Tab buttons */}
@@ -54,7 +54,7 @@ export default function SkillTabs({
       </div>
 
       
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         <motion.div
           key={activeTab}
           initial={{ opacity: 0, y: 30 }}
