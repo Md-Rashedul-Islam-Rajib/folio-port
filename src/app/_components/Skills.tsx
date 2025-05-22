@@ -10,17 +10,21 @@ type Tab = (typeof tabs)[number];
 
 
 interface SkillTabsProps {
-  frontend: Skill[];
-  backend: Skill[];
-  tools: Skill[];
+  skills: Skill[];
+  
 }
 
 export default function SkillTabs({
-  frontend,
-  backend,
-  tools,
+  skills
 }: SkillTabsProps) {
   const [activeTab, setActiveTab] = useState<Tab>("Frontend");
+  const frontend = skills.filter(
+    (skill: Skill) => skill.category === "Frontend"
+  );
+  const backend = skills.filter(
+    (skill: Skill) => skill.category === "Backend"
+  );
+  const tools = skills.filter((skill: Skill) => skill.category === "Tools");
 
   const tabData: Record<Tab, Skill[]> = {
     Frontend: frontend,
@@ -49,7 +53,7 @@ export default function SkillTabs({
         ))}
       </div>
 
-      {/* Tab Content */}
+      
       <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
