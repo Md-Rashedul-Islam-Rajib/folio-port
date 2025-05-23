@@ -26,20 +26,20 @@ const DetailsPage = ({ blog }: { blog: TBlog }) => {
       <div className="rounded-xl overflow-hidden mb-6">
         <picture>
           <img
-            src={blog.coverImage[0]}
-            alt={blog.title}
+            src={blog?.coverImage[0]}
+            alt={blog?.title}
             className="w-full h-64 object-cover"
           />
         </picture>
       </div>
 
       {/* Blog Title */}
-      <h1 className="text-3xl font-bold text-zinc-100 mb-4">{blog.title}</h1>
+      <h1 className="text-3xl font-bold text-zinc-100 mb-4">{blog?.title}</h1>
 
       {/* Date */}
       <p className="text-sm text-zinc-500 mb-8">
         Published on{" "}
-        {new Date(blog.createdAt).toLocaleDateString("bn-BD", {
+        {new Date(blog?.createdAt).toLocaleDateString("bn-BD", {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -49,7 +49,7 @@ const DetailsPage = ({ blog }: { blog: TBlog }) => {
       {/* Blog Content */}
       <div
         className="prose dark:prose-invert max-w-none prose-img:rounded-xl prose-p:leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
+        dangerouslySetInnerHTML={{ __html: blog?.content }}
       />
     </motion.div>
   );

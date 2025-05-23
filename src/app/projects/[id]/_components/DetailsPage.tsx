@@ -24,7 +24,7 @@ const DetailsPage = ({ project }: { project: TProject }) => {
 
       {/* Project Images */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-        {project.imageUrl.map((src, index) => (
+        {project?.imageUrl.map((src, index) => (
           <picture key={index}>
             <img
               src={src}
@@ -36,12 +36,12 @@ const DetailsPage = ({ project }: { project: TProject }) => {
       </div>
 
       {/* Project Title */}
-      <h1 className="text-3xl font-bold text-zinc-100 mb-4">{project.title}</h1>
+      <h1 className="text-3xl font-bold text-zinc-100 mb-4">{project?.title}</h1>
 
       {/* Date */}
       <p className="text-sm text-zinc-500 mb-4">
         Created on{" "}
-        {new Date(project.createdAt).toLocaleDateString("bn-BD", {
+        {new Date(project?.createdAt).toLocaleDateString("bn-BD", {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -50,7 +50,7 @@ const DetailsPage = ({ project }: { project: TProject }) => {
 
       {/* Tech Stack */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {project.techStack.map((tech, index) => (
+        {project?.techStack.map((tech, index) => (
           <span
             key={index}
             className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300"
@@ -62,14 +62,14 @@ const DetailsPage = ({ project }: { project: TProject }) => {
 
       {/* Description */}
       <p className="text-base text-zinc-300 leading-relaxed mb-6">
-        {project.description}
+        {project?.description}
       </p>
 
       {/* Links */}
       <div className="flex flex-wrap gap-4">
-        {project.liveUrl && (
+        {project?.liveUrl && (
           <Link
-            href={project.liveUrl}
+            href={project?.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
