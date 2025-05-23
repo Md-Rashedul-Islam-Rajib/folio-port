@@ -42,7 +42,7 @@ export const getSingleBlog = async (id: string) => {
     }
 
     const data = await res.json();
-    return data?.data ?? null;
+    return data ?? null;
   } catch (err) {
     if (err instanceof Error) {
       console.error("getSingleBlog error:", err.message);
