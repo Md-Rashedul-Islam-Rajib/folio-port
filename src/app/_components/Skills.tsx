@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SkillCard from "./SkillCard";
 import { Skill } from "../_types";
+import Cube from "./Cube";
 
 const tabs = ["Frontend", "Backend", "Tools"] as const;
 type Tab = (typeof tabs)[number];
@@ -34,6 +35,16 @@ export default function SkillTabs({
 
   return (
     <div className="w-full max-w-7xl mx-auto py-10 px-4">
+      <div className="mx-auto mb-28">
+          <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1 ,y: 20 }}
+                    transition={{ duration: 0.6, delay: 1.5 }}
+        >
+        <Cube />  
+                  </motion.div>
+        
+      </div>
       <h2 className="text-3xl font-bold mb-6 text-center">My Skills</h2>
 
       {/* Tab buttons */}

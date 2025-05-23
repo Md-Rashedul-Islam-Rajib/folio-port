@@ -8,5 +8,5 @@ const BlogsPage = () => {
     </div>
   )
 }
-
+export const dynamic = "force-dynamic";
 export default BlogsPage

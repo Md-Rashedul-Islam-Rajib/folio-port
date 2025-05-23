@@ -24,17 +24,17 @@ const DetailsPage = ({ blog }: { blog: TBlog }) => {
 
       {/* Blog Cover */}
       <div className="rounded-xl overflow-hidden mb-6">
-        <img
-          src={blog.coverImage[0]}
-          alt={blog.title}
-          className="w-full h-64 object-cover"
-        />
+        <picture>
+          <img
+            src={blog.coverImage[0]}
+            alt={blog.title}
+            className="w-full h-64 object-cover"
+          />
+        </picture>
       </div>
 
       {/* Blog Title */}
-      <h1 className="text-3xl font-bold text-zinc-100 mb-4">
-        {blog.title}
-      </h1>
+      <h1 className="text-3xl font-bold text-zinc-100 mb-4">{blog.title}</h1>
 
       {/* Date */}
       <p className="text-sm text-zinc-500 mb-8">

@@ -50,10 +50,10 @@ export default function Banner() {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-2xl md:text-xl font-bold mb-8"
         >
-          I'm a full stack developer passionate about crafting clean UI/UX and
+          I&apos;m a full stack developer passionate about crafting clean UI/UX and
           powerful backend systems. My journey began with JavaScript and grew
           into mastering technologies like React, Next.js, Node.js, MongoDB,
-          PostgreSQL, and Prisma. I'm always excited to collaborate, learn, and
+          PostgreSQL, and Prisma. I&apos;m always excited to collaborate, learn, and
           build.
         </motion.p>
         <motion.div

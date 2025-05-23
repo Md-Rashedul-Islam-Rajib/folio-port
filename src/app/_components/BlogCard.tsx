@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { TBlog } from "../_types";
@@ -22,11 +21,13 @@ const BlogCard: FC<Props> = ({ blog }) => {
     >
       {/* Cover Image */}
       <div className="h-48 overflow-hidden">
-        <img
-          src={blog.coverImage[0]}
-          alt={blog.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <picture>
+          <img
+            src={blog.coverImage[0]}
+            alt={blog.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </picture>
       </div>
 
       {/* Content Section */}

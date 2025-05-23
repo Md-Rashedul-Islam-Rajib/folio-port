@@ -1,5 +1,4 @@
 
-import { div } from "framer-motion/client";
 import { TProject } from "../_types";
 import ProjectCard from "./ProjectCard";
 

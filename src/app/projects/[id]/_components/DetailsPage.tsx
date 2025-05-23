@@ -25,12 +25,13 @@ const DetailsPage = ({ project }: { project: TProject }) => {
       {/* Project Images */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         {project.imageUrl.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Screenshot ${index + 1}`}
-            className="rounded-xl object-cover w-full h-64"
-          />
+          <picture key={index}>
+            <img
+              src={src}
+              alt={`Screenshot ${index + 1}`}
+              className="rounded-xl object-cover w-full h-64"
+            />
+          </picture>
         ))}
       </div>
 
