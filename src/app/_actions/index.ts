@@ -8,57 +8,77 @@ export const getAllSkills = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/skills`, {
       method: "GET",
       cache: "no-store",
-      next: {
-        tags: ["SKILLS"],
-      },
+      next: { tags: ["SKILLS"] },
     });
 
+    if (!res.ok) {
+      console.error("Failed to fetch skills:", res.statusText);
+      return { data: [] };
+    }
+
     const data = await res.json();
-    return data;
+    return {
+      data: Array.isArray(data?.data) ? data.data : [],
+    };
   } catch (err) {
     if (err instanceof Error) {
-      console.error(err.message);
+      console.error("Fetch error:", err.message);
     }
+    return { data: [] };
   }
 };
+
 
 export const getAllProjects = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER!}/projects`,
-      {
-        method: "GET",
-        next: {
-          tags: ["PROJECTS"],
-        },
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/projects`, {
+      method: "GET",
+      cache: "no-store",
+      next: {
+        tags: ["PROJECTS"],
+      },
+    });
+
+    if (!res.ok) {
+      console.error("Failed to fetch projects:", res.statusText);
+      return { data: [] };
+    }
 
     const data = await res.json();
-    return data;
+    return {
+      data: Array.isArray(data?.data) ? data.data : [],
+    };
   } catch (err) {
     if (err instanceof Error) {
-      console.error(err.message);
+      console.error("getAllProjects error:", err.message);
     }
+    return { data: [] };
   }
 };
+
 export const getAllBlogs = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER!}/blogs`,
-      {
-        method: "GET",
-        next: {
-          tags: ["BLOGS"],
-        },
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/blogs`, {
+      method: "GET",
+      cache: "no-store",
+      next: {
+        tags: ["BLOGS"],
+      },
+    });
+
+    if (!res.ok) {
+      console.error("Failed to fetch blogs:", res.statusText);
+      return { data: [] };
+    }
 
     const data = await res.json();
-    return data;
+    return {
+      data: Array.isArray(data?.data) ? data.data : [],
+    };
   } catch (err) {
     if (err instanceof Error) {
-      console.error(err.message);
+      console.error("getAllBlogs error:", err.message);
     }
+    return { data: [] };
   }
 };
