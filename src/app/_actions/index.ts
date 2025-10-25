@@ -43,7 +43,11 @@ const FALLBACK_BLOGS = [
     title: "Building resilient frontends",
     slug: "resilient-frontends",
     excerpt: "How to make your frontend show useful content when APIs fail.",
-    coverImage: "https://res.cloudinary.com/dbe3ewhey/image/upload/v1753943306/blog1.webp",
+    // components expect blog.coverImage[0] and blog.content
+    coverImage: [
+      "https://res.cloudinary.com/dbe3ewhey/image/upload/v1753943306/blog1.webp",
+    ],
+    content: "<p>How to make your frontend show useful content when APIs fail.</p>",
     createdAt: new Date().toISOString(),
   },
 ];
@@ -52,8 +56,7 @@ export const getAllSkills = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/skills`, {
       method: "GET",
-      cache: "no-store",
-      next: { tags: ["SKILLS"] },
+      next: { revalidate: 60, tags: ["SKILLS"] },
     });
 
     if (!res.ok) {
@@ -77,8 +80,8 @@ export const getAllProjects = async () => {
   try {
     const res = await fetch(`https://folio-apis.vercel.app/projects`, {
       method: "GET",
-      cache: "no-store",
       next: {
+        revalidate: 60,
         tags: ["PROJECTS"],
       },
     });
@@ -104,8 +107,8 @@ export const getAllBlogs = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/blogs`, {
       method: "GET",
-      cache: "no-store",
       next: {
+        revalidate: 60,
         tags: ["BLOGS"],
       },
     });

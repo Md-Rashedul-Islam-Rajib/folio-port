@@ -1,3 +1,5 @@
+
+
 const FALLBACK_PROJECTS = [
   {
     id: "8df57a7d-868d-4b55-911e-041115656361",
@@ -21,8 +23,8 @@ export const getAllProjects = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER!}/projects`, {
       method: "GET",
-      cache: "no-store",
       next: {
+        revalidate: 60,
         tags: ["PROJECTS"],
       },
     });
@@ -52,8 +54,8 @@ export const getSingleProject = async (id: string) => {
       `${process.env.NEXT_PUBLIC_SERVER!}/projects/${id}`,
       {
         method: "GET",
-        cache: "no-store",
         next: {
+          revalidate: 60,
           tags: ["PROJECTS"],
         },
       }
