@@ -11,6 +11,7 @@ const exo_2 = Exo_2({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
   title: "Rashedul Islam",
   description: "Personal portfolio of Rashedul Islam",
